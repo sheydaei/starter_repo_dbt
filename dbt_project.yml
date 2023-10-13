@@ -38,5 +38,5 @@ models:
       materialized: table
     prep:
       materialized: table
-    marts:
+    mart:
       materialized: table
