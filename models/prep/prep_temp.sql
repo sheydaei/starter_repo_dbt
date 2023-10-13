@@ -17,16 +17,7 @@ add_columns AS (
             WHEN EXTRACT(MONTH FROM date) IN (12, 1, 2) AND country = 'Australia' THEN 'Summer'
         END AS season
     FROM temp_daily
-),
-avg_maxwind AS (
-    SELECT
-        city,
-        date,
-        AVG(maxwind_kph) AS avg_maxwind_kph
-    FROM temp_daily
-    GROUP BY city, date
 )
-SELECT add_columns.*, avg_maxwind_kph
+SELECT add_columns.*
 FROM add_columns
-LEFT JOIN avg_maxwind
-ON add_columns.city = avg_maxwind.city AND add_columns.date = avg_maxwind.date
+
