@@ -4,7 +4,7 @@ WITH weekday_avg AS (
         avgtemp_c
     FROM {{ref('prep_temp')}}
     GROUP BY weekday
-),
+)
 
 SELECT *
 FROM weekday_avg
