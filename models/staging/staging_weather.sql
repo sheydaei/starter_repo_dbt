@@ -14,4 +14,4 @@ WITH temperature_daily AS (
         ((extracted_data -> 'location' -> 'lon')::VARCHAR)::NUMERIC AS lon
     FROM {{source("staging", "raw_temp")}})
 SELECT * 
-FROM temperature_daily;
+FROM temperature_daily
