@@ -1,9 +1,9 @@
 WITH weekday_avg AS (
     SELECT 
         weekday,
-        avgtemp_c
-    FROM {{ref('prep_temp')}}
-    GROUP BY weekday, avgtemp_c
+        AVG(avgtemp_c) AS avg_weekday
+    FROM {{ref('prep_temp')}} 
+    GROUP BY weekday
 )
 
 SELECT *
