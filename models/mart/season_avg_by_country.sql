@@ -5,6 +5,7 @@ WITH season_avgtem_cntry AS (
         AVG(avgtemp_c) AS season_avgtemp
     FROM {{ref('prep_temp')}} 
     GROUP BY season, country
+    ORDER BY country
 )
 
 SELECT *
