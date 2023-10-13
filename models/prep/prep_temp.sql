@@ -13,6 +13,16 @@ add_columns AS (
             ELSE 'Winter'
         END AS season
     FROM temp_daily
+),
+avg_maxwind AS (
+    SELECT
+        city,
+        date,
+        AVG(maxwind_kph) AS avg_maxwind_kph
+    FROM temp_daily
+    GROUP BY city, date
 )
-SELECT *
+SELECT add_columns.*, avg_maxwind_kph
 FROM add_columns
+LEFT JOIN avg_maxwind
+ON add_columns.city = avg_maxwind.city AND add_columns.date = avg_maxwind.date
