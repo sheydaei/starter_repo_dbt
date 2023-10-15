@@ -8,7 +8,7 @@ WITH max_min_yearly AS (
         MAX(maxtemp_c) AS max_maxtemp,
         MIN(mintemp_c) AS min_mintemp
     FROM {{ref('prep_temp')}} 
-    GROUP BY year, country, city
+    GROUP BY year, country, city, maxtemp_c, mintemp_c
     ORDER BY country
 )
 
