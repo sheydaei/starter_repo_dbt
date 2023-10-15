@@ -4,7 +4,7 @@ WITH max_min_yearly AS (
         mintemp_c,
         country,
         city,
-        EXTRACT(YEAR FROM date) AS 'year'
+        EXTRACT(YEAR FROM date) AS year
     FROM {{ref('prep_temp')}} 
     GROUP BY year, country
     ORDER BY country
