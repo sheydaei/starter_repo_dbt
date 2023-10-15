@@ -19,4 +19,4 @@ add_columns AS (
     FROM temp_daily
 )
 SELECT add_columns.*
-FROM add_columns;
+FROM add_columns
