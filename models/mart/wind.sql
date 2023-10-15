@@ -9,7 +9,7 @@ WITH wind_season AS (
             ELSE 0
         END AS windy_day
     FROM {{ref('prep_temp')}} 
-    GROUP BY year, country, city
+    GROUP BY year, country, city, maxwind_kph
     ORDER BY country
 )
 

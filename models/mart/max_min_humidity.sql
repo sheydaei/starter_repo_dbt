@@ -4,7 +4,7 @@ WITH total_precip_humidity AS (
         country,
         city,
         EXTRACT(YEAR FROM date) AS year,
-        SUM(daily_precipitation) AS yearly_precipitation
+        SUM(totalprecip_mm) AS yearly_precipitation
     FROM {{ref('prep_temp')}} 
     GROUP BY city, country, avghumidity,sum_total_precipation,year
     ORDER BY city
