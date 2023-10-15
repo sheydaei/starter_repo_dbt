@@ -4,7 +4,7 @@ WITH season_avgtem_cntry AS (
         country,
         AVG(avgtemp_c) AS season_avgtemp
     FROM {{ref('prep_temp')}} 
-    GROUP BY season, country
+    GROUP BY season, country, maxtemp_c, mintemp_c
     ORDER BY country
 )
 
