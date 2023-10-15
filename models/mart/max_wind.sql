@@ -9,5 +9,5 @@ WITH temp_daily AS (
     FROM temp_daily
     GROUP BY city, season
 )
-SELECT avg_maxwind.*, avg_maxwind_kph
+SELECT *
 FROM avg_maxwind
