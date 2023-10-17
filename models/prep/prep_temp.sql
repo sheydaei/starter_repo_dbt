@@ -7,7 +7,7 @@ add_columns AS (
         date AS weekday,
         date AS day_num,
         CASE
-            WHEN country = 'Australia' THEN
+            WHEN country = '"Australia"' THEN
                 CASE
                     WHEN EXTRACT(MONTH FROM date) IN (3, 4, 5) THEN 'Autumn'
                     WHEN EXTRACT(MONTH FROM date) IN (6, 7, 8) THEN 'Winter'
@@ -22,6 +22,7 @@ add_columns AS (
                     WHEN EXTRACT(MONTH FROM date) IN (12, 1, 2) THEN 'Winter'
                 END
         END AS season
+        REPLACE (city, '"', '') AS city
     FROM temp_daily
 )
 SELECT add_columns.*
