@@ -4,7 +4,7 @@ WITH city_avg AS (
         date,
         AVG(avgtemp_c) AS avg_weekday
     FROM {{ref('prep_temp')}} 
-    GROUP BY city
+    GROUP BY city, date
 )
 
 SELECT *
