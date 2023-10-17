@@ -21,7 +21,7 @@ add_columns AS (
                     WHEN EXTRACT(MONTH FROM date) IN (9, 10, 11) THEN 'Autumn'
                     WHEN EXTRACT(MONTH FROM date) IN (12, 1, 2) THEN 'Winter'
                 END
-        END AS season
+        END AS season,
         REPLACE (city, '"', '') AS city
     FROM temp_daily
 )
